@@ -33,7 +33,7 @@ namespace FRM_nagykonyv_210322
             this.szerzőToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.újKönyvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.searchTB = new System.Windows.Forms.TextBox();
             this.dgwKonyv = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.helyezes = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,7 +51,7 @@ namespace FRM_nagykonyv_210322
             this.újKönyvToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(425, 43);
+            this.menuStrip1.Size = new System.Drawing.Size(495, 43);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -68,6 +68,7 @@ namespace FRM_nagykonyv_210322
             this.újKönyvToolStripMenuItem.Name = "újKönyvToolStripMenuItem";
             this.újKönyvToolStripMenuItem.Size = new System.Drawing.Size(124, 39);
             this.újKönyvToolStripMenuItem.Text = "Új könyv";
+            this.újKönyvToolStripMenuItem.Click += new System.EventHandler(this.újKönyvToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -79,16 +80,19 @@ namespace FRM_nagykonyv_210322
             this.label1.TabIndex = 1;
             this.label1.Text = "Keresés szerző vagy cím alapján:";
             // 
-            // textBox1
+            // searchTB
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox1.Location = new System.Drawing.Point(17, 84);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(299, 30);
-            this.textBox1.TabIndex = 2;
+            this.searchTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.searchTB.Location = new System.Drawing.Point(17, 84);
+            this.searchTB.Name = "searchTB";
+            this.searchTB.Size = new System.Drawing.Size(466, 30);
+            this.searchTB.TabIndex = 2;
+            this.searchTB.TextChanged += new System.EventHandler(this.searchTB_TextChanged);
             // 
             // dgwKonyv
             // 
+            this.dgwKonyv.AllowUserToAddRows = false;
+            this.dgwKonyv.AllowUserToDeleteRows = false;
             this.dgwKonyv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgwKonyv.ColumnHeadersHeight = 29;
             this.dgwKonyv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -97,18 +101,22 @@ namespace FRM_nagykonyv_210322
             this.nev,
             this.cim});
             this.dgwKonyv.Location = new System.Drawing.Point(17, 140);
+            this.dgwKonyv.MultiSelect = false;
             this.dgwKonyv.Name = "dgwKonyv";
+            this.dgwKonyv.ReadOnly = true;
             this.dgwKonyv.RowHeadersWidth = 51;
             this.dgwKonyv.RowTemplate.Height = 24;
             this.dgwKonyv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwKonyv.Size = new System.Drawing.Size(396, 226);
+            this.dgwKonyv.Size = new System.Drawing.Size(466, 226);
             this.dgwKonyv.TabIndex = 3;
+            this.dgwKonyv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwKonyv_CellContentClick);
             // 
             // id
             // 
             this.id.HeaderText = "Könyv(ID)";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
+            this.id.ReadOnly = true;
             this.id.Visible = false;
             // 
             // helyezes
@@ -116,26 +124,29 @@ namespace FRM_nagykonyv_210322
             this.helyezes.HeaderText = "Helyezés";
             this.helyezes.MinimumWidth = 6;
             this.helyezes.Name = "helyezes";
+            this.helyezes.ReadOnly = true;
             // 
             // nev
             // 
             this.nev.HeaderText = "Név";
             this.nev.MinimumWidth = 6;
             this.nev.Name = "nev";
+            this.nev.ReadOnly = true;
             // 
             // cim
             // 
             this.cim.HeaderText = "Cím";
             this.cim.MinimumWidth = 6;
             this.cim.Name = "cim";
+            this.cim.ReadOnly = true;
             // 
             // FRMLista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 389);
+            this.ClientSize = new System.Drawing.Size(495, 389);
             this.Controls.Add(this.dgwKonyv);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.searchTB);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "FRMLista";
@@ -154,7 +165,7 @@ namespace FRM_nagykonyv_210322
         private System.Windows.Forms.ToolStripMenuItem szerzőToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem újKönyvToolStripMenuItem;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchTB;
         private System.Windows.Forms.DataGridView dgwKonyv;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn helyezes;

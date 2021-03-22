@@ -37,9 +37,9 @@ namespace FRM_nagykonyv_210322
             this.cimTB = new System.Windows.Forms.TextBox();
             this.helyezesTB = new System.Windows.Forms.TextBox();
             this.szerzoCB = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.rogzitBTN = new System.Windows.Forms.Button();
+            this.modositBTN = new System.Windows.Forms.Button();
+            this.torolBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -115,44 +115,50 @@ namespace FRM_nagykonyv_210322
             this.szerzoCB.Size = new System.Drawing.Size(167, 33);
             this.szerzoCB.TabIndex = 2;
             // 
-            // button1
+            // rogzitBTN
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(30, 201);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 40);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Rögzítés";
-            this.button1.UseVisualStyleBackColor = true;
+            this.rogzitBTN.AutoSize = true;
+            this.rogzitBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rogzitBTN.Location = new System.Drawing.Point(23, 196);
+            this.rogzitBTN.Name = "rogzitBTN";
+            this.rogzitBTN.Size = new System.Drawing.Size(90, 40);
+            this.rogzitBTN.TabIndex = 3;
+            this.rogzitBTN.Text = "Rögzítés";
+            this.rogzitBTN.UseVisualStyleBackColor = true;
+            this.rogzitBTN.Click += new System.EventHandler(this.rogzitBTN_Click);
             // 
-            // button2
+            // modositBTN
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Location = new System.Drawing.Point(130, 201);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 40);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Módosítás";
-            this.button2.UseVisualStyleBackColor = true;
+            this.modositBTN.AutoSize = true;
+            this.modositBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.modositBTN.Location = new System.Drawing.Point(129, 196);
+            this.modositBTN.Name = "modositBTN";
+            this.modositBTN.Size = new System.Drawing.Size(113, 40);
+            this.modositBTN.TabIndex = 3;
+            this.modositBTN.Text = "Módosítás";
+            this.modositBTN.UseVisualStyleBackColor = true;
+            this.modositBTN.Click += new System.EventHandler(this.modositBTN_Click);
             // 
-            // button3
+            // torolBTN
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.Location = new System.Drawing.Point(249, 201);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(85, 40);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Törlés";
-            this.button3.UseVisualStyleBackColor = true;
+            this.torolBTN.AutoSize = true;
+            this.torolBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.torolBTN.Location = new System.Drawing.Point(248, 196);
+            this.torolBTN.Name = "torolBTN";
+            this.torolBTN.Size = new System.Drawing.Size(85, 40);
+            this.torolBTN.TabIndex = 3;
+            this.torolBTN.Text = "Törlés";
+            this.torolBTN.UseVisualStyleBackColor = true;
+            this.torolBTN.Click += new System.EventHandler(this.torolBTN_Click);
             // 
             // FRMKonyv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(363, 285);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.torolBTN);
+            this.Controls.Add(this.modositBTN);
+            this.Controls.Add(this.rogzitBTN);
             this.Controls.Add(this.szerzoCB);
             this.Controls.Add(this.helyezesTB);
             this.Controls.Add(this.cimTB);
@@ -163,6 +169,7 @@ namespace FRM_nagykonyv_210322
             this.Controls.Add(this.label1);
             this.Name = "FRMKonyv";
             this.Text = "Könyv";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRMKonyv_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,8 +185,8 @@ namespace FRM_nagykonyv_210322
         private System.Windows.Forms.TextBox cimTB;
         private System.Windows.Forms.TextBox helyezesTB;
         private System.Windows.Forms.ComboBox szerzoCB;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button rogzitBTN;
+        private System.Windows.Forms.Button modositBTN;
+        private System.Windows.Forms.Button torolBTN;
     }
 }
